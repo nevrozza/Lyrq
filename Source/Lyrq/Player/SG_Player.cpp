@@ -22,12 +22,13 @@ TArray<FString> USG_Player::GetAvailableSaveGameFiles()
 	
 	IFileManager::Get().FindFiles(FoundFiles, *SaveGameDirPath, *SaveGameFileExt);
 	
-
+	
 	for (int i = 0; i < FoundFiles.Num(); i++)
 	{
 		
 		FoundFiles[i] = FoundFiles[i].Replace(*SaveGameFileExtIncDot, *Empty);
 	}
+
 	FoundFiles.RemoveSingleSwap("main");
 	
 	return FoundFiles;
