@@ -1,0 +1,24 @@
+<changelist name="Uncommitted_changes_before_rebase_[Changes]7" date="1692661290657" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]7/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="Content/StarterContent/Textures/T_MacroVariation.uasset" />
+    <option name="AFTER_PATH" value="Content/StarterContent/Textures/T_MacroVariation.uasset" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]7/T_MacroVariation.uasset" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Content/StarterContent/Textures/T_Ground_Grass_N.uasset" />
+    <option name="AFTER_PATH" value="Content/StarterContent/Textures/T_Ground_Grass_N.uasset" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]7/T_Ground_Grass_N.uasset" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Content/StarterContent/Textures/T_Ground_Grass_D.uasset" />
+    <option name="AFTER_PATH" value="Content/StarterContent/Textures/T_Ground_Grass_D.uasset" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]7/T_Ground_Grass_D.uasset" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Content/StarterContent/Textures/T_Perlin_Noise_M.uasset" />
+    <option name="AFTER_PATH" value="Content/StarterContent/Textures/T_Perlin_Noise_M.uasset" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]7/T_Perlin_Noise_M.uasset" />
+  </binary>
+</changelist>

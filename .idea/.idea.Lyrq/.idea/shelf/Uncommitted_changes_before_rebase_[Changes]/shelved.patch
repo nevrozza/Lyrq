@@ -1,0 +1,101 @@
+Index: Source/Lyrq/Player/AC_Stats.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Fill out your copyright notice in the Description page of Project Settings.\r\n\r\n#pragma once\r\n\r\n#include \"CoreMinimal.h\"\r\n#include \"Components/ActorComponent.h\"\r\n#include \"PS_Main.h\"\r\n#include \"HUD/HUD_Player.h\"\r\n\r\n#include \"AC_Stats.generated.h\"\r\n\r\n\r\nDECLARE_DELEGATE_OneParam(FOnHPPercentChangedSignature, float);\r\nDECLARE_DELEGATE_OneParam(FOnManaPercentChangedSignature, float);\r\n\r\n\r\n// ���������, ���������� �� �������������� Actor (hp, mana, etc.)\r\nUCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )\r\nclass LYRQ_API UAC_Stats : public UActorComponent\r\n{\r\n\tGENERATED_BODY()\r\n\r\npublic:\t\r\n\t// Sets default values for this component's properties\r\n\tUAC_Stats();\r\n\r\npublic:\t\r\n    FStatsStruct Stats;\r\n   \r\n    // ����� ��������, ��, �����, �������� ���� ���������� � ������������ �������\r\n\r\n    // �������� HPEvent � ManaEvent\r\n    FOnHPPercentChangedSignature OnHPPercentChangedDelegate;\r\n    FOnManaPercentChangedSignature OnManaPercentChangedDelegate;\r\n    \r\n    // *�����������* ������ (��������� ������������� �� PlayerState)\r\n    void RegisterPlayer();\r\n    // ��������� ��� *�����������* ������������� ����, ������ �������� MaxHP, Strength, Speed, \r\n    void RegisterMob();\r\n\r\n    // ��������, ����� ����� �������� ���������� �� � HUD (IncreaseHP, DecreaseHP, IncreaseMaxHP, SetMaxHP)\r\n    void HPEvent();\r\n\r\n    // ����������� ����� ������� ��� ���� =)\r\n\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void SetName(const FString& Value);\r\n\r\n    UFUNCTION(BlueprintCallable, Category = \"HP\")\r\n        void IncreaseHP(int32 Value);\r\n    UFUNCTION(BlueprintCallable, Category = \"HP\")\r\n        void DecreaseHP(int32 Value);\r\n\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void IncreaseMaxHP(int32 Value);\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void SetMaxHP(int32 Value);\r\n\r\n    UFUNCTION(BlueprintCallable, Category = \"Mana\")\r\n        void IncreaseMana(int32 Value);\r\n    UFUNCTION(BlueprintCallable, Category = \"Mana\")\r\n        void DecreaseMana(int32 Value);\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void IncreaseIQ(int32 Value);\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void SetIQ(int32 Value);\r\n\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void IncreaseXP(int32 Value);\r\n\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void DecreasePoints(int32 Value);\r\n\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void IncreaseStrength(int32 Value);\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void SetStrength(int32 Value);\r\n\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void IncreaseSpeed(int32 Value);\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void SetSpeed(int32 Value);\r\n\r\n    // ��������??\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void IncreaseAgility(int32 Value);\r\n    UFUNCTION(BlueprintCallable, Category = \"Stats\")\r\n        void SetAgility(int32 Value);\r\n\t\t\r\n};\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Source/Lyrq/Player/AC_Stats.h b/Source/Lyrq/Player/AC_Stats.h
+--- a/Source/Lyrq/Player/AC_Stats.h	(revision 630864ef44943cb5c2e6ff793b878cbe329c4a54)
++++ b/Source/Lyrq/Player/AC_Stats.h	(date 1692660587063)
+@@ -14,7 +14,7 @@
+ DECLARE_DELEGATE_OneParam(FOnManaPercentChangedSignature, float);
+ 
+ 
+-// ���������, ���������� �� �������������� Actor (hp, mana, etc.)
++// Компонент, отвечающий за характеристики Actor (hp, mana, etc.)
+ UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+ class LYRQ_API UAC_Stats : public UActorComponent
+ {
+@@ -27,21 +27,21 @@
+ public:	
+     FStatsStruct Stats;
+    
+-    // ����� ��������, ��, �����, �������� ���� ���������� � ������������ �������
++    // Нужно почитать, но, вроде, делегаты сами анбиндятся с уничтожением объекта
+ 
+-    // �������� HPEvent � ManaEvent
++    // Делегаты HPEvent и ManaEvent
+     FOnHPPercentChangedSignature OnHPPercentChangedDelegate;
+     FOnManaPercentChangedSignature OnManaPercentChangedDelegate;
+     
+-    // *�����������* ������ (��������� ������������� �� PlayerState)
++    // *Регистрация* игрока (получение характеристик из PlayerState)
+     void RegisterPlayer();
+-    // ��������� ��� *�����������* ������������� ����, ������ �������� MaxHP, Strength, Speed, 
++    // Заготовка для *регистрации* характеристик моба, должна получать MaxHP, Strength, Speed, 
+     void RegisterMob();
+ 
+-    // ��������, ����� ����� �������� ���������� �� � HUD (IncreaseHP, DecreaseHP, IncreaseMaxHP, SetMaxHP)
++    // Вызывать, когда хотим обновить показатели хп в HUD (IncreaseHP, DecreaseHP, IncreaseMaxHP, SetMaxHP)
+     void HPEvent();
+ 
+-    // ����������� ����� ������� ��� ���� =)
++    // Аналогичный стоит сделать для маны =)
+ 
+     UFUNCTION(BlueprintCallable, Category = "Stats")
+         void SetName(const FString& Value);
+@@ -81,7 +81,7 @@
+     UFUNCTION(BlueprintCallable, Category = "Stats")
+         void SetSpeed(int32 Value);
+ 
+-    // ��������??
++    // Вырезать??
+     UFUNCTION(BlueprintCallable, Category = "Stats")
+         void IncreaseAgility(int32 Value);
+     UFUNCTION(BlueprintCallable, Category = "Stats")
+Index: Source/Lyrq/Player/AC_Stats.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Fill out your copyright notice in the Description page of Project Settings.\r\n\r\n\r\n#include \"AC_Stats.h\"\r\n#include <Kismet/GameplayStatics.h>\r\n\r\n// Sets default values for this component's properties\r\nUAC_Stats::UAC_Stats()\r\n{\r\n\t// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features\r\n\t// off to improve performance if you don't need them.\r\n\tPrimaryComponentTick.bCanEverTick = false;\r\n\r\n}\r\n\r\nvoid UAC_Stats::RegisterPlayer()\r\n{\r\n\t// ��������� PlayerController ���������\r\n\tAPlayerController* PlayerController = UGameplayStatics::GetPlayerController(this->GetOwner(), 0);\r\n\t// ��������� HUD (�������� ������ �� �������)\r\n\tAHUD_Player* HUD = Cast<AHUD_Player>(PlayerController->GetHUD());\r\n\t// ������� FName �������\r\n\tFName SetHealthFun = GET_FUNCTION_NAME_CHECKED(UW_ActionBar, SetHealth);\r\n\t// ������ ActionBar ������� � ��������\r\n\tOnHPPercentChangedDelegate.BindUFunction(HUD->ActionBar, SetHealthFun);\r\n\tFName SetManaFun = GET_FUNCTION_NAME_CHECKED(UW_ActionBar, SetMana);\r\n\tOnManaPercentChangedDelegate.BindUFunction(HUD->ActionBar, SetManaFun);\r\n\t\r\n\t// ��������� PlayerState\r\n\tAPS_Main* PS = Cast<APS_Main>(PlayerController->PlayerState);\r\n\t\r\n\tStats = PS->Stats;\r\n}\r\n\r\nvoid UAC_Stats::RegisterMob()\r\n{\r\n\t\r\n}\r\n\r\nvoid UAC_Stats::HPEvent()\r\n{\r\n\t// �������� �� � UI\r\n\t// IfBound ������������, ����� �� ��������, ���� ��� ����������� �������\r\n\tOnHPPercentChangedDelegate.ExecuteIfBound(Stats.CurrentHP / (float)Stats.MaxHP);\r\n}\r\n\r\nvoid UAC_Stats::SetName(const FString& Value)\r\n{\r\n\tStats.Name = Value;\r\n}\r\n\r\n\r\nvoid UAC_Stats::IncreaseHP(int32 Value)\r\n{\r\n\tStats.CurrentHP += Value;\r\n\tif (Stats.CurrentHP >= Stats.MaxHP) Stats.CurrentHP = Stats.MaxHP;\r\n\tHPEvent();\r\n}\r\nvoid UAC_Stats::DecreaseHP(int32 Value)\r\n{\r\n\tStats.CurrentHP -= Value;\r\n\tif (GEngine)\r\n\t\tGEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt(Stats.CurrentHP));\r\n\tif (Stats.CurrentHP <= 0)\r\n\t{\r\n\t\t//DeathCode\r\n\t}\r\n\tHPEvent();\r\n}\r\n\r\n\r\n\r\nvoid UAC_Stats::IncreaseMaxHP(int32 Value) \r\n{\r\n\tStats.MaxHP += Value;\r\n\tHPEvent();\r\n}\r\nvoid UAC_Stats::SetMaxHP(int32 Value) { \r\n\tStats.MaxHP = Value; \r\n\tHPEvent(); \r\n}\r\n\r\nvoid UAC_Stats::IncreaseMana(int32 Value) { Stats.CurrentMana += Value; }\r\nvoid UAC_Stats::DecreaseMana(int32 Value) { Stats.CurrentMana -= Value; }\r\n\r\nvoid UAC_Stats::IncreaseIQ(int32 Value) { Stats.IQ += Value; }\r\nvoid UAC_Stats::SetIQ(int32 Value) { Stats.IQ = Value; }\r\n\r\nvoid UAC_Stats::IncreaseXP(int32 Value)\r\n{\r\n\tStats.XP += Value;\r\n\tif (Stats.XP >= 500) Stats.XP = 0; Stats.CountOfPoints++;\r\n}\r\n\r\nvoid UAC_Stats::DecreasePoints(int32 Value) { Stats.CountOfPoints -= Value; }\r\n\r\nvoid UAC_Stats::IncreaseStrength(int32 Value) { Stats.Strength += Value; }\r\nvoid UAC_Stats::SetStrength(int32 Value) { Stats.Strength = Value; }\r\n\r\nvoid UAC_Stats::IncreaseSpeed(int32 Value) { Stats.Speed += Value; }\r\nvoid UAC_Stats::SetSpeed(int32 Value) { Stats.Speed = Value; }\r\n\r\nvoid UAC_Stats::IncreaseAgility(int32 Value) { Stats.Agility += Value; }\r\nvoid UAC_Stats::SetAgility(int32 Value) { Stats.Agility = Value; }\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Source/Lyrq/Player/AC_Stats.cpp b/Source/Lyrq/Player/AC_Stats.cpp
+--- a/Source/Lyrq/Player/AC_Stats.cpp	(revision 630864ef44943cb5c2e6ff793b878cbe329c4a54)
++++ b/Source/Lyrq/Player/AC_Stats.cpp	(date 1692661048389)
+@@ -15,18 +15,17 @@
+ 
+ void UAC_Stats::RegisterPlayer()
+ {
+-	// ��������� PlayerController ���������
++	// Получение PlayerController владельца
+ 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this->GetOwner(), 0);
+-	// ��������� HUD (�������� ������ �� �������)
++	// Получение HUD (возможно только на клиенте)
+ 	AHUD_Player* HUD = Cast<AHUD_Player>(PlayerController->GetHUD());
+-	// ������� FName �������
++	// Находим FName функции
+ 	FName SetHealthFun = GET_FUNCTION_NAME_CHECKED(UW_ActionBar, SetHealth);
+-	// ������ ActionBar ������� � ��������
++	// Биндим ActionBar функцию к делегату
+ 	OnHPPercentChangedDelegate.BindUFunction(HUD->ActionBar, SetHealthFun);
+ 	FName SetManaFun = GET_FUNCTION_NAME_CHECKED(UW_ActionBar, SetMana);
+ 	OnManaPercentChangedDelegate.BindUFunction(HUD->ActionBar, SetManaFun);
+-	
+-	// ��������� PlayerState
++	// Получение PlayerState
+ 	APS_Main* PS = Cast<APS_Main>(PlayerController->PlayerState);
+ 	
+ 	Stats = PS->Stats;
+@@ -39,8 +38,8 @@
+ 
+ void UAC_Stats::HPEvent()
+ {
+-	// �������� �� � UI
+-	// IfBound ������������, ����� �� ��������, ���� ��� ����������� �������
++	// Обновить хп в UI
++	// IfBound используется, чтобы не вылетало, если нет забинженной функции
+ 	OnHPPercentChangedDelegate.ExecuteIfBound(Stats.CurrentHP / (float)Stats.MaxHP);
+ }
+ 

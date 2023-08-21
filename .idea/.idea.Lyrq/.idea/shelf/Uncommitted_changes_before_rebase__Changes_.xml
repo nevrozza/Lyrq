@@ -1,0 +1,29 @@
+<changelist name="Uncommitted_changes_before_rebase_[Changes]" date="1692661161108" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="Content/StarterContent/Textures/T_MacroVariation.uasset" />
+    <option name="AFTER_PATH" value="Content/StarterContent/Textures/T_MacroVariation.uasset" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/T_MacroVariation.uasset" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Content/StarterContent/Textures/T_Ground_Grass_N.uasset" />
+    <option name="AFTER_PATH" value="Content/StarterContent/Textures/T_Ground_Grass_N.uasset" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/T_Ground_Grass_N.uasset" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Content/StarterContent/Textures/T_Ground_Grass_D.uasset" />
+    <option name="AFTER_PATH" value="Content/StarterContent/Textures/T_Ground_Grass_D.uasset" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/T_Ground_Grass_D.uasset" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Content/StarterContent/Architecture/Floor_400x400.uasset" />
+    <option name="AFTER_PATH" value="Content/StarterContent/Architecture/Floor_400x400.uasset" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Floor_400x400.uasset" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Content/StarterContent/Textures/T_Perlin_Noise_M.uasset" />
+    <option name="AFTER_PATH" value="Content/StarterContent/Textures/T_Perlin_Noise_M.uasset" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Lyrq/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/T_Perlin_Noise_M.uasset" />
+  </binary>
+</changelist>
